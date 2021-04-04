@@ -1,0 +1,32 @@
+<div class="todo-item" *ngIf="todoDetails" [ngClass]="{'completed':todoDetails.done}">
+    <div *ngIf="todoDetails.done; else completeBlock">
+        <h2>{{todoDetails.label}}</h2>
+        <p>{{todoDetails.description}}</p>
+        <div class="todo-actions">
+            {{todoDetails.done}}
+            <i class="material-icons complete">done</i>
+        </div>
+    </div>
+    <ng-template #completeBlock>
+
+        <label for="label">Title</label>
+        <input id="label" type="text" [ngModel]="todoDetails.label" (ngModelChange)="updateValue($event, 'label')">
+        <label for="description">Description</label>
+        <textarea id="description" [ngModel]="todoDetails.description" (ngModelChange)="updateValue($event, 'description')"></textarea>
+        <div class="todo-actions">
+            <button (click)="deleteTask()">
+                <i class="material-icons delete" >delete</i>
+            </button>
+            <ng-container *ngIf="changed; else completeButton">
+                <button (click)="updateTask()">
+                    <i class="material-icons">save</i>
+                </button>
+            </ng-container>
+            <ng-template #completeButton>
+                <button (click)="completeTask()">
+                    <i class="material-icons complete">done</i>
+                </button>
+            </ng-template>
+        </div>
+    </ng-template>
+</div>

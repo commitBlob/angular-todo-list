@@ -1,0 +1,14 @@
+<h1 class="title">Todo list</h1>
+
+<button (click)="showForm()">Add new Todo</button>
+
+<div class="filters">
+    <label for="includeCompleted">Show Completed</label>
+    <input type="checkbox" id="includeCompleted" [value]="showCompleted" (change)="checkboxUpdate($event)">
+</div>
+
+<app-new-item *ngIf="showNewItemForm" (addTodo)="addNewToDo($event)"></app-new-item>
+<div class="todo-list" *ngFor="let todo of todoList | filterCompleted:showCompleted">
+    <app-todo-item [todoDetails]="todo" (todoUpdate)="updateTodo($event)" (todoDelete)="deleteTodo($event)"></app-todo-item>
+</div>
+

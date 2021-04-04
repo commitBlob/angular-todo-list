@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'core/colors';
+@import 'core/font';
+
+/* I know I can create styling files within the component folder, this is just personal preference
+* as I like to keep all styling files on the same place.
+*/
+@import 'components/todo-list';
+@import 'components/todo-item';
+
+@import 'utils/quarks';

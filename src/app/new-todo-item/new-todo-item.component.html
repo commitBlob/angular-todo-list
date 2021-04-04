@@ -1,0 +1,33 @@
+<div class="new-item-wrapper">
+    <div class="todo-item">
+        <label for="label">Title <span class="required">*</span></label>
+        <input
+                id="label"
+                type="text"
+                [ngModel]="todoDetails.label"
+                (ngModelChange)="updateValue($event, 'label')"
+                placeholder="Title"
+        >
+        <label for="description">Description <span class="required">*</span></label>
+        <textarea id="description"
+                  [ngModel]="todoDetails.description"
+                  (ngModelChange)="updateValue($event, 'description')"
+                  placeholder="Description">
+        </textarea>
+        <label for="category">Category</label>
+        <input
+                id="category"
+                type="text"
+                [ngModel]="todoDetails.category"
+                (ngModelChange)="updateValue($event, 'category')"
+                placeholder="Category"
+        >
+        <div class="todo-actions">
+            <button [disabled]="buttonDisabled()" (click)="addTask()">
+                <i class="material-icons">save</i>
+            </button>
+
+        </div>
+    </div>
+</div>
+

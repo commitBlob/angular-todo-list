@@ -1,0 +1,15 @@
+
+.title {
+    color: $info;
+}
+
+.todo-list, .new-item-wrapper {
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+    margin: .5em;
+}
+
+.filters {
+    margin: 1em 0;
+}
